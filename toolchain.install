@@ -1,0 +1,51 @@
+#!/bin/sh
+set -e
+
+hostarch=x86_64	# do something smarter for this?
+
+install_tarball()
+{
+	local url=$1
+	local install_target=$2
+
+	#echo URL: ${url}
+	#echo DIR: ${install_target}
+
+	curl --connect-timeout 5 --retry 5 --retry-delay 1 --create-dirs -fsSLo \
+		/tmp/${install_target}.tar ${url}
+
+	mkdir -p ${TOOLS_DIR}/${install_target}
+	tar -xf \
+		/tmp/${install_target}.tar \
+		-C ${TOOLS_DIR}/${install_target} \
+		 --strip-components=1
+}
+
+install_arm_toolchain()
+{
+	local version=$1
+	local variant=$2
+
+	local install_dir=gcc-arm-${version}-${hostarch}-${variant}
+
+	# An example URL:
+	#   https://developer.arm.com/-/media/Files/downloads/gnu-a/10.2-2020.11/binrel/gcc-arm-10.2-2020.11-x86_64-aarch64-none-elf.tar.xz
+
+  	url="https://developer.arm.com/-/media/Files/downloads/gnu-a/${version}/binrel/gcc-arm-${version}-${hostarch}-${variant}.tar.xz"
+	install_tarball ${url} ${install_dir}
+}
+
+
+# Install CMake
+install_tarball \
+	https://github.com/Kitware/CMake/releases/download/v3.15.7/cmake-3.15.7-Linux-x86_64.tar.gz \
+	cmake-3.15.7-Linux-x86_64
+
+install_arm_toolchain        8.3-2019.03        aarch64-linux-gnu
+install_arm_toolchain        8.3-2019.03        arm-eabi
+install_arm_toolchain       10.2-2020.11        arm-none-eabi
+install_arm_toolchain	    10.2-2020.11        aarch64-none-elf
+
+install_tarball \
+	https://releases.linaro.org/components/toolchain/binaries/6.2-2016.11/aarch64-linux-gnu/gcc-linaro-6.2.1-2016.11-x86_64_aarch64-linux-gnu.tar.xz \
+	gcc-linaro-6.2-2016.11-x86_64_aarch64-linux-gnu
