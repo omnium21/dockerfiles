@@ -34,6 +34,8 @@ ENV PKG_DEPS="\
     git-email \
     gperf \
     graphviz \
+    iputils-ping \
+    iproute2 \
     jq \
     libffi-dev \
     libssl-dev \
@@ -46,6 +48,7 @@ ENV PKG_DEPS="\
     locales \
     make \
     mtools \
+    net-tools \
     openssh-server \
     openssh-client \
     perl \
