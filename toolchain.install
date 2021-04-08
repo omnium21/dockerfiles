@@ -48,4 +48,10 @@ install_arm_toolchain	    10.2-2020.11        aarch64-none-elf
 
 install_tarball \
 	https://releases.linaro.org/components/toolchain/binaries/6.2-2016.11/aarch64-linux-gnu/gcc-linaro-6.2.1-2016.11-x86_64_aarch64-linux-gnu.tar.xz \
-	gcc-linaro-6.2-2016.11-x86_64_aarch64-linux-gnu
+	gcc-linaro-6.2.1-2016.11-x86_64_aarch64-linux-gnu
+
+install_tarball \
+	https://releases.linaro.org/components/toolchain/binaries/6.2-2016.11/arm-linux-gnueabihf/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf.tar.xz \
+	gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf
+
+ln -s /opt/toolchains /arm/toolchains
