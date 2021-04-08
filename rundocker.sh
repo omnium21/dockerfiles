@@ -1,4 +1,4 @@
-IMAGE=${1:-d9410b46515a}
+IMAGE=${1:-"${USER}-ubuntu"}
 PARAMS="$PARAMS -v /arm:/arm"
 PARAMS="$PARAMS -v /data:/data"
 
