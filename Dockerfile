@@ -75,7 +75,8 @@ ENV PKG_DEPS="\
 "
 
 # Can be overriden at build time
-ARG BUILDSLAVE_PASSWORD=ryan
+ARG USER=someuser
+ARG USER_PASSWORD=${USER}
 
 COPY requirements_*.txt /opt/
 COPY toolchain.install /tmp
@@ -98,16 +99,16 @@ RUN set -e ;\
     # Set Python 3 as default
     ln -s -f /usr/bin/python3 /usr/bin/python ;\
     # Setup user
-    useradd -m -s /bin/bash ryan ;\
-    echo "ryan:$BUILDSLAVE_PASSWORD" | chpasswd ;\
-    echo 'ryan ALL = NOPASSWD: ALL' > /etc/sudoers.d/jenkins ;\
-    chmod 0440 /etc/sudoers.d/jenkins ;\
+    useradd -m -s /bin/bash ${USER} ;\
+    echo "${USER}:${USER_PASSWORD}" | chpasswd ;\
+    echo "${USER} ALL = NOPASSWD: ALL" > /etc/sudoers.d/${USER} ;\
+    chmod 0440 /etc/sudoers.d/${USER} ;\
     # FIXME: add /arm as a temporary workaround until ARM CI moves to Open CI paths
     mkdir -p /var/run/sshd ${TOOLS_DIR} /arm ;\
     # Run shell script(s) to install files, toolchains, etc...
     bash -ex /tmp/toolchain.install ;\
     # Fix permissions
-    chown -R ryan:ryan ${TOOLS_DIR} /arm ;\
+    chown -R ${USER}:${USER} ${TOOLS_DIR} /arm ;\
     # Cleanup
     apt clean ;\
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
