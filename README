@@ -1,0 +1,18 @@
+Introduction
+------------
+
+This repository contains the dockerfiles derived from those used by Linaro CI:
+http://git.trustedfirmware.org/ci/dockerfiles.git/tree/
+
+Contributing
+------------
+
+If you want to contribute changes, you can send github merge requests at
+https://github.com/omnium21/dockerfiles/pulls
+
+License
+-------
+
+The software is provided under a BSD-3-Clause.
+Contributions to this project are accepted under the same license with developer
+sign-off as described in the Contributing Guidelines above.
