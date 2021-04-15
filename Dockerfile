@@ -9,6 +9,7 @@ ENV PATH=${TOOLS_DIR}/bin:${PATH}
 ENV PKG_DEPS="\
     acpica-tools \
     autoconf \
+    automake \
     autopoint \
     bc \
     bison \
@@ -18,6 +19,7 @@ ENV PKG_DEPS="\
     curl \
     default-jre \
     device-tree-compiler \
+    dosfstools \
     doxygen \
     expect \
     file \
@@ -29,6 +31,7 @@ ENV PKG_DEPS="\
     g++-6 \
     gdisk \
     genext2fs \
+    gettext \
     git \
     git-review \
     git-email \
@@ -62,6 +65,7 @@ ENV PKG_DEPS="\
     python3-pyelftools \
     python3-psutil \
     python3-pyasn1 \
+    rsync \
     sbsigntool \
     srecord \
     sudo \
