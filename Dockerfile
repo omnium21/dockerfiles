@@ -84,12 +84,12 @@ COPY toolchain.install /tmp
 RUN set -e ;\
     echo 'locales locales/locales_to_be_generated multiselect C.UTF-8 UTF-8, en_US.UTF-8 UTF-8 ' | debconf-set-selections ;\
     echo 'locales locales/default_environment_locale select en_US.UTF-8' | debconf-set-selections ;\
-    apt update -q=2 ;\
-    apt dist-upgrade -q=2 --yes ;\
-    apt install -q=2 --yes --no-install-recommends ${PKG_DEPS} ;\
+    apt-get update -q=2 ;\
+    apt-get dist-upgrade -q=2 --yes ;\
+    apt-get install -q=2 --yes --no-install-recommends ${PKG_DEPS} ;\
     curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash ;\
-    apt update -q=2 ;\
-    apt install -q=2 --yes --no-install-recommends git-lfs ;\
+    apt-get update -q=2 ;\
+    apt-get install -q=2 --yes --no-install-recommends git-lfs ;\
     # Install Python requirements
     curl -s https://bootstrap.pypa.io/pip/3.5/get-pip.py -o /tmp/get-pip.py ;\
     python2 /tmp/get-pip.py ;\
@@ -110,7 +110,7 @@ RUN set -e ;\
     # Fix permissions
     chown -R ${USER}:${USER} ${TOOLS_DIR} /arm ;\
     # Cleanup
-    apt clean ;\
+    apt-get clean ;\
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ENV LANG en_GB.UTF-8
