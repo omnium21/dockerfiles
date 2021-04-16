@@ -32,5 +32,5 @@ if [ "${OVERWRITE}" = "true" ]; then
 	docker rmi -f ${image} || true
 fi
 
-docker build --rm --pull --tag=$image --build-arg USER=${USER} .
+docker build --rm --pull --tag=$image --build-arg USER=${USER} --build-arg UID=$(id -u) --build-arg GID=$(id -g) .
 echo $image > .docker-tag
