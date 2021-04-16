@@ -105,7 +105,8 @@ RUN set -e ;\
     # Set Python 3 as default
     ln -s -f /usr/bin/python3 /usr/bin/python ;\
     # Setup user
-    useradd -m -s /bin/bash ${USER} --uid $(UID) --gid ${GID};\
+    groupadd -g ${GID} ${USER};\
+    useradd -m -s /bin/bash ${USER} --uid ${UID} --gid ${GID};\
     echo "${USER}:${USER_PASSWORD}" | chpasswd ;\
     echo "${USER} ALL = NOPASSWD: ALL" > /etc/sudoers.d/${USER} ;\
     chmod 0440 /etc/sudoers.d/${USER} ;\
