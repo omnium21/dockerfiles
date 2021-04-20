@@ -12,4 +12,8 @@ IMAGE=${1:-"${USER}-ubuntu"}
 # Devices to be added to the container
 [ -c "/dev/fuse" ] && PARAMS="${PARAMS} --cap-add SYS_ADMIN --device /dev/fuse"
 
+if [ "$(docker image ls -q ${IMAGE})" = "" ] ; then
+	echo "Image '${IMAGE}' missing, building it..."
+	$(dirname $0)/build.sh ${IMAGE}
+fi
 docker run ${PARAMS} --user ${USER}:${USER} --hostname docker-ubuntu -t -i ${IMAGE}
