@@ -17,6 +17,7 @@ ENV PKG_DEPS="\
     bridge-utils \
     cpio \
     curl \
+    dc \
     default-jre \
     device-tree-compiler \
     dosfstools \
@@ -40,6 +41,7 @@ ENV PKG_DEPS="\
     iputils-ping \
     iproute2 \
     jq \
+    less \
     libffi-dev \
     libssl-dev \
     libxml2 \
