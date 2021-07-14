@@ -6,6 +6,9 @@ IMAGE=${1:-"${USER}-ubuntu"}
 [ -d "/arm"  ] && PARAMS="${PARAMS} -v /arm:/arm"
 [ -d "/data" ] && PARAMS="${PARAMS} -v /data:/data"
 
+# PATHs to be added to the container
+[ -d "/data/bin" ] && PARAMS="${PARAMS} -e PATH=$PATH:/data/bin"
+
 # Devices to be added to the container
 [ -c "/dev/fuse" ] && PARAMS="${PARAMS} --cap-add SYS_ADMIN --device /dev/fuse"
 
