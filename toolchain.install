@@ -54,3 +54,7 @@ install_tarball \
 install_tarball \
 	https://releases.linaro.org/components/toolchain/binaries/6.2-2016.11/arm-linux-gnueabihf/gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf.tar.xz \
 	gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf
+
+install_tarball \
+	https://developer.arm.com/-/media/Files/downloads/gnu-rm/10-2020q4/gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux.tar.bz2 \
+	gcc-arm-none-eabi-10-2020-q4-major
