@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:focal
 
 # Environment variables used by CI scripts
 ENV ARMLMD_LICENSE_FILE=27000@ci.trustedfirmware.org
@@ -28,8 +28,6 @@ ENV PKG_DEPS="\
     fuseext2 \
     g++-multilib \
     gcc-multilib \
-    gcc-6 \
-    g++-6 \
     gdisk \
     genext2fs \
     gettext \
@@ -59,11 +57,11 @@ ENV PKG_DEPS="\
     perl \
     pkg-config \
     python \
-    python-pip \
     python-psutil \
     python3 \
     python3-crypto \
     python3-dev \
+    python3-pip \
     python3-pyelftools \
     python3-psutil \
     python3-pyasn1 \
@@ -99,9 +97,7 @@ RUN set -e ;\
     apt-get update -q=2 ;\
     apt-get install -q=2 --yes --no-install-recommends git-lfs ;\
     # Install Python requirements
-    curl -s https://bootstrap.pypa.io/pip/3.5/get-pip.py -o /tmp/get-pip.py ;\
-    python2 /tmp/get-pip.py ;\
-    pip2 install --no-cache-dir -r /opt/requirements_python2.txt ;\
+    curl -s https://bootstrap.pypa.io/pip/get-pip.py -o /tmp/get-pip.py ;\
     python3 /tmp/get-pip.py ;\
     pip3 install --no-cache-dir -r /opt/requirements_python3.txt ;\
     # Set Python 3 as default
