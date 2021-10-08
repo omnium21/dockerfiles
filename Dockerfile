@@ -102,6 +102,13 @@ RUN set -e ;\
     pip3 install --no-cache-dir -r /opt/requirements_python3.txt ;\
     # Set Python 3 as default
     ln -s -f /usr/bin/python3 /usr/bin/python ;\
+    # cmake
+    wget https://cmake.org/files/v3.21/cmake-3.21.3.tar.gz ;\
+    tar xf cmake-3.21.3.tar.gz ;\
+    cd cmake-3.21.3 ;\
+    ./configure ;\
+    make ;\
+    make install ;\
     # Setup user
     groupadd -g ${GID} ${USER};\
     useradd -m -s /bin/bash ${USER} --uid ${UID} --gid ${GID};\
