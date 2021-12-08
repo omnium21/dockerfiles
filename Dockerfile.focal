@@ -15,6 +15,7 @@ ENV PKG_DEPS="\
     bison \
     build-essential \
     bridge-utils \
+    clang-10 \
     cpio \
     curl \
     dc \
