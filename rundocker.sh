@@ -38,4 +38,4 @@ if [ "${OVERWRITE}" = "true" ] || [ "$(docker image ls -q ${IMAGE})" = "" ] ; th
 	echo "Building image '${IMAGE}' ..."
 	$(dirname $0)/build.sh -i ${IMAGE} -r ${RELEASE} -o
 fi
-docker run ${PARAMS} --user ${USER}:${USER} --hostname docker-ubuntu-${RELEASE} -t -i ${IMAGE}
+docker run ${PARAMS} --network host --user ${USER}:${USER} --hostname docker-ubuntu-${RELEASE} -t -i ${IMAGE}
