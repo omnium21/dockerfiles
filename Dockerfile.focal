@@ -16,17 +16,20 @@ ENV PKG_DEPS="\
     build-essential \
     bridge-utils \
     clang-10 \
+    chrpath \
     cpio \
     curl \
     dc \
     default-jre \
     device-tree-compiler \
+    diffstat \
     dosfstools \
     doxygen \
     expect \
     file \
     flex \
     fuseext2 \
+    gawk \
     g++-multilib \
     gcc-multilib \
     gdisk \
@@ -50,6 +53,7 @@ ENV PKG_DEPS="\
     libxml-libxml-perl \
     lld \
     locales \
+    lz4 \
     make \
     mtools \
     net-tools \
@@ -70,6 +74,7 @@ ENV PKG_DEPS="\
     sbsigntool \
     srecord \
     sudo \
+    texinfo \
     tree \
     unzip \
     uuid-dev \
@@ -77,6 +82,7 @@ ENV PKG_DEPS="\
     virtualenv \
     wget \
     zip \
+    zstd \
 "
 
 # Can be overriden at build time

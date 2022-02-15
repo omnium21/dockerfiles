@@ -15,17 +15,20 @@ ENV PKG_DEPS="\
     bison \
     build-essential \
     bridge-utils \
+    chrpath \
     cpio \
     curl \
     dc \
     default-jre \
     device-tree-compiler \
+    diffstat \
     dosfstools \
     doxygen \
     expect \
     file \
     flex \
     fuseext2 \
+    gawk \
     g++-multilib \
     gcc-multilib \
     gcc-6 \
@@ -71,6 +74,7 @@ ENV PKG_DEPS="\
     sbsigntool \
     srecord \
     sudo \
+    texinfo \
     tree \
     unzip \
     uuid-dev \
@@ -78,6 +82,7 @@ ENV PKG_DEPS="\
     virtualenv \
     wget \
     zip \
+    zstd \
 "
 
 # Can be overriden at build time
