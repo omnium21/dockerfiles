@@ -72,6 +72,7 @@ ENV PKG_DEPS="\
     python3-pyasn1 \
     rsync \
     sbsigntool \
+    software-properties-common \
     srecord \
     sudo \
     texinfo \
