@@ -25,7 +25,6 @@ done
 
 
 # Mount points to be added to the container
-[ -d "/arm"  ] && PARAMS="${PARAMS} -v /arm:/arm"
 [ -d "/data" ] && PARAMS="${PARAMS} -v /data:/data"
 
 # PATHs to be added to the container
