@@ -38,4 +38,4 @@ if [ "${OVERWRITE}" = "true" ] || [ "$(docker image ls -q ${IMAGE})" = "" ] ; th
 	echo "Building image '${IMAGE}' ..."
 	$(dirname $0)/build.sh -i ${IMAGE} -r ${RELEASE} -o
 fi
-docker run ${PARAMS} --network host --user ${USER}:${USER} -t -i ${IMAGE}
+docker run ${PARAMS} --env="DISPLAY" --env="QT_X11_NO_MITSHM=1" --network host --user ${USER}:${USER} -t -i ${IMAGE}
