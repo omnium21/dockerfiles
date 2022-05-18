@@ -75,6 +75,7 @@ ENV PKG_DEPS="\
     software-properties-common \
     srecord \
     sudo \
+    telnet \
     texinfo \
     tree \
     unzip \
@@ -82,6 +83,7 @@ ENV PKG_DEPS="\
     vim \
     virtualenv \
     wget \
+    xterm \
     zip \
     zstd \
 "
